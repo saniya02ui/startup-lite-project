@@ -1,5 +1,4 @@
-import React, { createContext, useContext, useEffect } from 'react';
-import { useLocalStorage } from '../hooks/useLocalStorage';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 
 // Create the Theme Context
 export const ThemeContext = createContext(undefined);
@@ -13,10 +12,18 @@ export const ThemeContext = createContext(undefined);
  * @param {React.ReactNode} props.children - Child components.
  */
 export const ThemeProvider = ({ children }) => {
-  // Use custom useLocalStorage hook to manage dark mode theme settings automatically
-  const [isDarkMode, setIsDarkMode] = useLocalStorage('startup-crm-theme', false);
+  // Use state initialized from localStorage, default to false
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    try {
+      const savedTheme = localStorage.getItem('startup-crm-theme');
+      return savedTheme === 'true';
+    } catch (error) {
+      console.warn('Error reading from localStorage:', error);
+      return false;
+    }
+  });
 
-  // Dynamically toggle the 'dark' CSS class on document element root whenever theme changes
+  // Apply the correct theme class on document element when the component mounts or updates
   useEffect(() => {
     try {
       const root = window.document.documentElement;
@@ -26,15 +33,30 @@ export const ThemeProvider = ({ children }) => {
         root.classList.remove('dark');
       }
     } catch (error) {
-      console.error('Failed to update class list.', error);
+      console.error('Failed to update class list on mount:', error);
     }
   }, [isDarkMode]);
 
   /**
    * Toggles the current theme state between light and dark mode.
+   * Flips isDarkMode boolean, adds/removes 'dark' class, and saves to localStorage.
    */
   const toggleTheme = () => {
-    setIsDarkMode((prevMode) => !prevMode);
+    setIsDarkMode((prevMode) => {
+      const newMode = !prevMode;
+      try {
+        const root = window.document.documentElement;
+        if (newMode) {
+          root.classList.add('dark');
+        } else {
+          root.classList.remove('dark');
+        }
+        localStorage.setItem('startup-crm-theme', String(newMode));
+      } catch (error) {
+        console.error('Failed to save preference or update class list in toggleTheme:', error);
+      }
+      return newMode;
+    });
   };
 
   return (

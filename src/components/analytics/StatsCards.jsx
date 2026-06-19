@@ -23,7 +23,7 @@ const TrendIndicator = ({ value, prefix = '', suffix = '%' }) => {
     <span className={`inline-flex items-center gap-0.5 px-2 py-0.5 rounded-lg text-xs font-bold ${
       isPositive 
         ? 'bg-emerald-50 text-emerald-600 dark:bg-emerald-950/30 dark:text-emerald-400' 
-        : 'bg-rose-50 text-rose-600 dark:bg-rose-955/30 dark:text-rose-400'
+        : 'bg-rose-50 text-rose-600 dark:bg-rose-950/30 dark:text-rose-400'
     }`}>
       {isPositive ? <ArrowUpRight className="w-3.5 h-3.5" /> : <ArrowDownRight className="w-3.5 h-3.5" />}
       {isPositive ? '+' : ''}{value}{suffix}
@@ -106,11 +106,11 @@ export const StatsCards = ({ kpis = {} }) => {
         return (
           <div
             key={card.title}
-            className="bg-white dark:bg-gray-800 rounded-2xl p-5 border border-gray-150 dark:border-gray-700 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col justify-between"
+            className="bg-white dark:bg-gray-800 rounded-2xl p-5 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col justify-between"
           >
             {/* Header row */}
             <div className="flex justify-between items-start">
-              <span className="text-xs font-bold text-slate-450 dark:text-slate-400 uppercase tracking-wider">
+              <span className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
                 {card.title}
               </span>
               <div className={`w-8 h-8 rounded-xl flex items-center justify-center shrink-0 ${card.colorClass}`}>
@@ -120,7 +120,7 @@ export const StatsCards = ({ kpis = {} }) => {
 
             {/* Value block */}
             <div className="mt-3">
-              <h3 className="text-xl sm:text-2xl font-extrabold text-slate-850 dark:text-slate-100 tracking-tight">
+              <h3 className="text-xl sm:text-2xl font-extrabold text-slate-800 dark:text-slate-100 tracking-tight">
                 {card.value}
               </h3>
               

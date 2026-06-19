@@ -8,7 +8,7 @@ export const LoadingSkeleton = () => {
   return (
     <div className="space-y-8 animate-pulse">
       {/* Filters Skeleton */}
-      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-white dark:bg-gray-800 p-4 rounded-2xl border border-gray-100 dark:border-gray-700">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-white dark:bg-gray-800 p-4 rounded-2xl border border-gray-200 dark:border-gray-700">
         <div className="space-y-2 w-48">
           <div className="h-4 bg-slate-200 dark:bg-slate-700 rounded w-2/3"></div>
           <div className="h-3 bg-slate-100 dark:bg-slate-700/50 rounded w-full"></div>
@@ -21,7 +21,7 @@ export const LoadingSkeleton = () => {
         {[...Array(6)].map((_, i) => (
           <div
             key={i}
-            className="bg-white dark:bg-gray-800 rounded-2xl p-5 border border-gray-100 dark:border-gray-700 space-y-3"
+            className="bg-white dark:bg-gray-800 rounded-2xl p-5 border border-gray-200 dark:border-gray-700 space-y-3"
           >
             <div className="flex justify-between items-center">
               <div className="h-3 bg-slate-200 dark:bg-slate-700 rounded w-1/2"></div>
@@ -36,7 +36,7 @@ export const LoadingSkeleton = () => {
       {/* Row 1: Pie & Funnel Skeletons */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Pie Chart Card Skeleton */}
-        <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-100 dark:border-gray-700 h-[400px] flex flex-col justify-between">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-200 dark:border-gray-700 h-[400px] flex flex-col justify-between">
           <div className="space-y-2">
             <div className="h-4 bg-slate-200 dark:bg-slate-700 rounded w-1/3"></div>
             <div className="h-3 bg-slate-100 dark:bg-slate-700/50 rounded w-1/4"></div>
@@ -54,7 +54,7 @@ export const LoadingSkeleton = () => {
         </div>
 
         {/* Funnel Chart Card Skeleton */}
-        <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-100 dark:border-gray-700 h-[400px] flex flex-col justify-between">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-200 dark:border-gray-700 h-[400px] flex flex-col justify-between">
           <div className="space-y-2">
             <div className="h-4 bg-slate-200 dark:bg-slate-700 rounded w-1/3"></div>
             <div className="h-3 bg-slate-100 dark:bg-slate-700/50 rounded w-1/4"></div>
@@ -72,7 +72,7 @@ export const LoadingSkeleton = () => {
       {/* Row 2: Bar & Line Skeletons */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Bar Chart Card Skeleton */}
-        <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-100 dark:border-gray-700 h-[400px] flex flex-col justify-between">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-200 dark:border-gray-700 h-[400px] flex flex-col justify-between">
           <div className="space-y-2">
             <div className="h-4 bg-slate-200 dark:bg-slate-700 rounded w-1/3"></div>
             <div className="h-3 bg-slate-100 dark:bg-slate-700/50 rounded w-1/4"></div>
@@ -88,7 +88,7 @@ export const LoadingSkeleton = () => {
         </div>
 
         {/* Line Chart Card Skeleton */}
-        <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-100 dark:border-gray-700 h-[400px] flex flex-col justify-between">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-200 dark:border-gray-700 h-[400px] flex flex-col justify-between">
           <div className="space-y-2">
             <div className="h-4 bg-slate-200 dark:bg-slate-700 rounded w-1/3"></div>
             <div className="h-3 bg-slate-100 dark:bg-slate-700/50 rounded w-1/4"></div>
@@ -105,11 +105,11 @@ export const LoadingSkeleton = () => {
 
       {/* Row 3: Revenue & Sources Skeletons */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-100 dark:border-gray-700 h-[400px] space-y-4">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-200 dark:border-gray-700 h-[400px] space-y-4">
           <div className="h-4 bg-slate-200 dark:bg-slate-700 rounded w-1/3"></div>
           <div className="h-56 bg-slate-100 dark:bg-slate-700/30 rounded-xl w-full"></div>
         </div>
-        <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-100 dark:border-gray-700 h-[400px] space-y-4">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-200 dark:border-gray-700 h-[400px] space-y-4">
           <div className="h-4 bg-slate-200 dark:bg-slate-700 rounded w-1/3"></div>
           <div className="space-y-3 flex-1">
             {[...Array(5)].map((_, idx) => (
@@ -124,7 +124,7 @@ export const LoadingSkeleton = () => {
 
       {/* Row 4: Heatmap & Top Performers Skeletons */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <div className="lg:col-span-2 bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-100 dark:border-gray-700 h-[300px] space-y-4">
+        <div className="lg:col-span-2 bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-200 dark:border-gray-700 h-[300px] space-y-4">
           <div className="h-4 bg-slate-200 dark:bg-slate-700 rounded w-1/4"></div>
           <div className="grid grid-cols-24 gap-1 h-36">
             {[...Array(120)].map((_, idx) => (
@@ -132,7 +132,7 @@ export const LoadingSkeleton = () => {
             ))}
           </div>
         </div>
-        <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-100 dark:border-gray-700 h-[300px] space-y-4 flex flex-col justify-between">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-200 dark:border-gray-700 h-[300px] space-y-4 flex flex-col justify-between">
           <div className="h-4 bg-slate-200 dark:bg-slate-700 rounded w-1/3"></div>
           <div className="space-y-3">
             {[...Array(3)].map((_, idx) => (

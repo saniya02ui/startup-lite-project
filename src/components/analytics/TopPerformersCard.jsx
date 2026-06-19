@@ -32,13 +32,13 @@ const RankBadge = ({ rank }) => {
   }
   if (rank === 3) {
     return (
-      <div className="w-8 h-8 rounded-full bg-orange-50 dark:bg-orange-950/40 flex items-center justify-center text-orange-500 shrink-0 shadow-sm border border-orange-105 dark:border-orange-900/50">
+      <div className="w-8 h-8 rounded-full bg-orange-50 dark:bg-orange-950/40 flex items-center justify-center text-orange-500 shrink-0 shadow-sm border border-orange-200 dark:border-orange-900/50">
         <Award className="w-4 h-4" />
       </div>
     );
   }
   return (
-    <div className="w-8 h-8 rounded-full bg-gray-50 dark:bg-gray-800/80 flex items-center justify-center text-slate-450 dark:text-slate-400 text-xs font-bold shrink-0 border border-gray-100 dark:border-gray-700">
+    <div className="w-8 h-8 rounded-full bg-gray-50 dark:bg-gray-800/80 flex items-center justify-center text-slate-500 dark:text-slate-400 text-xs font-bold shrink-0 border border-gray-200 dark:border-gray-700">
       {rank}
     </div>
   );
@@ -55,12 +55,12 @@ export const TopPerformersCard = ({ performers = [] }) => {
   const topRevenueValue = performers[0]?.value || 1; // Prevent divide by zero
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm border border-gray-150 dark:border-gray-700 flex flex-col h-[300px]">
+    <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm border border-gray-200 dark:border-gray-700 flex flex-col h-[300px]">
       {/* Header */}
       <div className="mb-4 flex justify-between items-center">
         <div>
           <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100">Top Performers</h3>
-          <p className="text-xs text-slate-405 dark:text-slate-500 mt-0.5">Sales reps ranked by closed-won revenue contribution</p>
+          <p className="text-xs text-slate-400 dark:text-slate-500 mt-0.5">Sales reps ranked by closed-won revenue contribution</p>
         </div>
       </div>
 

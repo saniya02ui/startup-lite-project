@@ -8,8 +8,8 @@ const CustomTooltip = ({ active, payload }) => {
   if (active && payload && payload.length) {
     const data = payload[0].payload;
     return (
-      <div className="bg-slate-900 text-slate-100 p-3.5 rounded-2xl shadow-xl border border-slate-750 text-xs space-y-1">
-        <p className="font-bold text-slate-205">{data.name}</p>
+      <div className="bg-slate-900 text-slate-100 p-3.5 rounded-2xl shadow-xl border border-slate-700 text-xs space-y-1">
+        <p className="font-bold text-slate-200">{data.name}</p>
         <p className="text-sky-400 font-semibold">{data.value} Leads</p>
         <p className="text-slate-400 font-medium">{data.percentage}%</p>
       </div>
@@ -36,10 +36,10 @@ export const PieChartCard = ({ data = [] }) => {
   };
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm border border-gray-150 dark:border-gray-700 flex flex-col h-[400px]">
+    <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm border border-gray-200 dark:border-gray-700 flex flex-col h-[400px]">
       <div className="mb-4">
         <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100">Lead Distribution</h3>
-        <p className="text-xs text-slate-405 dark:text-slate-500">Pipeline stage distribution of current leads</p>
+        <p className="text-xs text-slate-400 dark:text-slate-500">Pipeline stage distribution of current leads</p>
       </div>
 
       <div className="flex-1 flex flex-col sm:flex-row items-center justify-between gap-6 min-h-0">
@@ -83,10 +83,10 @@ export const PieChartCard = ({ data = [] }) => {
           
           {/* Centered Total Indicator */}
           <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-            <span className="text-3xl font-extrabold text-slate-850 dark:text-slate-100 transition-all duration-300">
+            <span className="text-3xl font-extrabold text-slate-800 dark:text-slate-100 transition-all duration-300">
               {activeIndex !== null ? data[activeIndex]?.value : totalLeads}
             </span>
-            <span className="text-[10px] uppercase tracking-wider text-slate-450 dark:text-slate-500 font-bold transition-all duration-350">
+            <span className="text-[10px] uppercase tracking-wider text-slate-500 dark:text-slate-500 font-bold transition-all duration-355">
               {activeIndex !== null ? data[activeIndex]?.name : 'Total Leads'}
             </span>
           </div>

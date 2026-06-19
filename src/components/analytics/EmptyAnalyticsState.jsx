@@ -9,7 +9,7 @@ import { BarChart3, Plus } from 'lucide-react';
 export const EmptyAnalyticsState = () => {
   return (
     <div className="flex flex-col items-center justify-center min-h-[60vh] px-4">
-      <div className="max-w-md w-full bg-white dark:bg-gray-800 rounded-3xl p-8 border border-gray-150 dark:border-gray-700 shadow-xl text-center space-y-6 transform hover:scale-[1.01] transition-all duration-300">
+      <div className="max-w-md w-full bg-white dark:bg-gray-800 rounded-3xl p-8 border border-gray-200 dark:border-gray-700 shadow-xl text-center space-y-6 transform hover:scale-[1.01] transition-all duration-300">
         {/* Animated Icon Ring */}
         <div className="relative w-20 h-20 bg-blue-50 dark:bg-blue-900/20 rounded-2xl flex items-center justify-center mx-auto group">
           <div className="absolute inset-0 bg-blue-100 dark:bg-blue-900/30 rounded-2xl scale-0 group-hover:scale-110 transition-transform duration-300 -z-10 animate-ping opacity-25"></div>

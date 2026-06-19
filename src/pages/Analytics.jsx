@@ -35,17 +35,17 @@ export const Analytics = () => {
   // If no leads exist at all in the system, show empty CTA state
   if (!hasLeads) {
     return (
-      <div className="p-4 md:p-6 bg-[#F8FAFC] dark:bg-gray-900 min-h-screen transition-colors duration-200">
+      <div className="p-4 md:p-6 bg-gray-50 dark:bg-gray-900 min-h-screen transition-colors duration-200">
         <EmptyAnalyticsState />
       </div>
     );
   }
 
   return (
-    <div className="p-4 md:p-6 bg-[#F8FAFC] dark:bg-gray-900 min-h-screen space-y-6 transition-colors duration-200">
+    <div className="p-4 md:p-6 bg-gray-50 dark:bg-gray-900 min-h-screen space-y-6 transition-colors duration-200">
       {/* Header section */}
-      <div className="flex flex-col gap-1 border-b border-slate-100 dark:border-gray-800 pb-4">
-        <h1 className="text-2xl md:text-3xl font-extrabold text-slate-850 dark:text-white tracking-tight">
+      <div className="flex flex-col gap-1 border-b border-gray-200 dark:border-gray-700 pb-4">
+        <h1 className="text-2xl md:text-3xl font-extrabold text-gray-900 dark:text-white tracking-tight">
           Analytics Dashboard
         </h1>
         <p className="text-sm text-slate-500 dark:text-gray-400 font-medium">

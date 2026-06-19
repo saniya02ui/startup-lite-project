@@ -14,9 +14,9 @@ const StatsCard = ({ title, value, icon, change, color }) => {
   const isPositive = change >= 0;
   
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 p-6 flex flex-col hover:shadow-md transition-all duration-200">
+    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 flex flex-col hover:shadow-md transition-all duration-200">
       <div className="flex items-center justify-between mb-4">
-        <h3 className="text-sm font-medium text-gray-500 dark:text-gray-405">{title}</h3>
+        <h3 className="text-sm font-medium text-gray-500 dark:text-gray-400">{title}</h3>
         <div className={`p-2 rounded-lg bg-opacity-10 bg-gray-100 dark:bg-gray-700 ${color}`}>
           {icon}
         </div>

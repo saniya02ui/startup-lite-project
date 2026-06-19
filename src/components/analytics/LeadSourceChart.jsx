@@ -1,5 +1,6 @@
 import React from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from 'recharts';
+import { useTheme } from '../../context/ThemeContext';
 
 /**
  * Custom Tooltip component for Lead Sources.
@@ -7,8 +8,8 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContaine
 const CustomTooltip = ({ active, payload }) => {
   if (active && payload && payload.length) {
     return (
-      <div className="bg-slate-900 text-slate-100 p-3.5 rounded-2xl shadow-xl border border-slate-750 text-xs">
-        <p className="font-bold text-slate-205">{payload[0].payload.name}</p>
+      <div className="bg-slate-900 text-slate-100 p-3.5 rounded-2xl shadow-xl border border-slate-700 text-xs">
+        <p className="font-bold text-slate-200">{payload[0].payload.name}</p>
         <p className="mt-1 text-sky-400 font-extrabold">{payload[0].value} Leads</p>
       </div>
     );
@@ -24,6 +25,7 @@ const CustomTooltip = ({ active, payload }) => {
  * @param {Array} props.data - Lead sources dataset.
  */
 export const LeadSourceChart = ({ data = [] }) => {
+  const { isDarkMode } = useTheme();
   // Take top sources or pad if empty
   const chartData = data.length > 0 ? data : [
     { name: 'Website', count: 0 },
@@ -32,10 +34,10 @@ export const LeadSourceChart = ({ data = [] }) => {
   ];
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm border border-gray-150 dark:border-gray-700 flex flex-col h-[400px]">
+    <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm border border-gray-200 dark:border-gray-700 flex flex-col h-[400px]">
       <div className="mb-4">
         <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100">Acquisition Channels</h3>
-        <p className="text-xs text-slate-405 dark:text-slate-500">Breakdown of leads by acquisition channel source</p>
+        <p className="text-xs text-slate-400 dark:text-slate-500">Breakdown of leads by acquisition channel source</p>
       </div>
 
       <div className="flex-1 min-h-0">
@@ -52,7 +54,7 @@ export const LeadSourceChart = ({ data = [] }) => {
               </linearGradient>
             </defs>
 
-            <CartesianGrid strokeDasharray="3 3" horizontal={false} stroke="#E2E8F0" className="dark:stroke-slate-700" />
+            <CartesianGrid strokeDasharray="3 3" horizontal={false} stroke={isDarkMode ? '#334155' : '#E2E8F0'} />
             
             <XAxis 
               type="number"
@@ -67,8 +69,8 @@ export const LeadSourceChart = ({ data = [] }) => {
               type="category"
               tickLine={false} 
               axisLine={false}
-              tick={{ fill: '#475569', fontSize: 12, fontWeight: 700 }}
-              className="dark:fill-slate-350"
+              tick={{ fill: isDarkMode ? '#94A3B8' : '#475569', fontSize: 12, fontWeight: 700 }}
+              className="dark:fill-slate-300"
               width={85}
             />
 

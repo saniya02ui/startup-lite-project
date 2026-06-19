@@ -103,7 +103,7 @@ export const ActivityHeatmap = ({ data = [] }) => {
   }, [data]);
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm border border-gray-150 dark:border-gray-700 flex flex-col h-[300px] justify-between">
+    <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm border border-gray-200 dark:border-gray-700 flex flex-col h-[300px] justify-between">
       {/* Header */}
       <div className="flex justify-between items-center mb-4">
         <div>
@@ -111,11 +111,11 @@ export const ActivityHeatmap = ({ data = [] }) => {
             <Flame className="w-5 h-5 text-red-500 fill-red-500/20" />
             Activity Heatmap
           </h3>
-          <p className="text-xs text-slate-405 dark:text-slate-500 mt-0.5">
+          <p className="text-xs text-slate-400 dark:text-slate-500 mt-0.5">
             Timeline representation of customer updates and sales logs
           </p>
         </div>
-        <span className="text-xs bg-gray-50 dark:bg-gray-900 border border-gray-100 dark:border-gray-700 px-3 py-1.5 rounded-xl font-bold text-slate-650 dark:text-slate-400">
+        <span className="text-xs bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 px-3 py-1.5 rounded-xl font-bold text-slate-600 dark:text-slate-400">
           {totalActions} actions logged
         </span>
       </div>
@@ -139,7 +139,7 @@ export const ActivityHeatmap = ({ data = [] }) => {
           {/* Grid Rows + Weekday Labels */}
           <div className="flex">
             {/* Weekdays indicator column */}
-            <div className="flex flex-col gap-[5px] text-[9px] font-bold text-slate-455 dark:text-slate-500 w-8 pr-2 shrink-0 pt-[2px]">
+            <div className="flex flex-col gap-[5px] text-[9px] font-bold text-slate-500 dark:text-slate-500 w-8 pr-2 shrink-0 pt-[2px]">
               <span>Sun</span>
               <span className="invisible">Mon</span>
               <span>Tue</span>
@@ -173,7 +173,7 @@ export const ActivityHeatmap = ({ data = [] }) => {
                         className={`w-[14px] h-[14px] rounded-[3px] transition-all duration-200 relative group cursor-pointer ${colorClass}`}
                       >
                         {/* Tooltip Popup */}
-                        <div className="absolute bottom-5 left-1/2 -translate-x-1/2 bg-slate-900 text-slate-100 p-3 rounded-2xl shadow-xl text-[10px] w-44 hidden group-hover:block z-30 pointer-events-none border border-slate-750 font-semibold space-y-1">
+                        <div className="absolute bottom-5 left-1/2 -translate-x-1/2 bg-slate-900 text-slate-100 p-3 rounded-2xl shadow-xl text-[10px] w-44 hidden group-hover:block z-30 pointer-events-none border border-slate-700 font-semibold space-y-1">
                           <p className="border-b border-slate-800 pb-1 mb-1 text-slate-350">{day.label}</p>
                           <p className="text-blue-400 text-xs font-bold">{day.activity.count} Actions Logged</p>
                           <div className="grid grid-cols-2 gap-x-2 gap-y-0.5 text-slate-400 font-medium border-t border-slate-800/50 pt-1">
@@ -195,7 +195,7 @@ export const ActivityHeatmap = ({ data = [] }) => {
       </div>
 
       {/* Heatmap Legend */}
-      <div className="flex justify-end items-center gap-1.5 text-[10px] font-bold text-slate-450 dark:text-slate-500 pt-2 border-t border-gray-100 dark:border-gray-700/70">
+      <div className="flex justify-end items-center gap-1.5 text-[10px] font-bold text-slate-400 dark:text-slate-500 pt-2 border-t border-gray-200 dark:border-gray-700/70">
         <span>Less</span>
         <div className="w-2.5 h-2.5 rounded-[2px] bg-slate-100 dark:bg-slate-700/50" />
         <div className="w-2.5 h-2.5 rounded-[2px] bg-blue-100 dark:bg-blue-900/30" />

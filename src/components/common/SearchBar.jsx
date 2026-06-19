@@ -48,7 +48,7 @@ const SearchBar = ({ value, onChange }) => {
         type="text"
         value={localValue}
         onChange={(e) => setLocalValue(e.target.value)}
-        className="block w-full pl-10 pr-10 py-2.5 bg-white dark:bg-gray-800 border border-gray-205 dark:border-gray-700 rounded-lg text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all shadow-sm"
+        className="block w-full pl-10 pr-10 py-2.5 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all shadow-sm"
         placeholder="Search by name, company, or email..."
         aria-label="Search leads by name, company, or email"
       />

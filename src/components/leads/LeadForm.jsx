@@ -72,8 +72,8 @@ const LeadForm = ({ initialData, onSubmit, onCancel }) => {
   };
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700 max-w-lg w-full p-6 transition-all duration-200">
-      <div className="flex justify-between items-center mb-6">
+    <div className="bg-white dark:bg-gray-800 md:rounded-xl shadow-lg border-y md:border border-gray-200 dark:border-gray-700 max-w-lg w-full h-full md:h-auto overflow-y-auto p-4 md:p-6 transition-all duration-200">
+      <div className="flex justify-between items-center mb-6 pt-2 md:pt-0">
         <h2 className="text-xl font-bold text-gray-900 dark:text-white">
           {initialData ? 'Edit Lead' : 'Add New Lead'}
         </h2>
@@ -203,11 +203,11 @@ const LeadForm = ({ initialData, onSubmit, onCancel }) => {
         </div>
 
         {/* Action Buttons */}
-        <div className="flex justify-end space-x-3 mt-8 pt-4 border-t border-gray-100 dark:border-gray-700">
+        <div className="flex justify-end space-x-3 mt-8 pt-4 border-t border-gray-200 dark:border-gray-700">
           <button
             type="button"
             onClick={onCancel}
-            className="px-4 py-2 text-sm font-semibold text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-650 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-200 transition-colors cursor-pointer"
+            className="px-4 py-2 text-sm font-semibold text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-200 transition-colors cursor-pointer"
           >
             Cancel
           </button>

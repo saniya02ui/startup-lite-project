@@ -13,10 +13,10 @@ const RecentLeads = ({ leads = [] }) => {
   // Helper function to render the appropriate status badge
   const renderStatusBadge = (status) => {
     const statusStyles = {
-      new: "bg-blue-105 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300",
-      contacted: "bg-yellow-105 text-yellow-700 dark:bg-yellow-900/40 dark:text-yellow-300",
-      qualified: "bg-green-105 text-green-700 dark:bg-green-900/40 dark:text-green-300",
-      lost: "bg-red-105 text-red-700 dark:bg-red-900/40 dark:text-red-300",
+      new: "bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300",
+      contacted: "bg-yellow-100 text-yellow-700 dark:bg-yellow-900/40 dark:text-yellow-300",
+      qualified: "bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-300",
+      lost: "bg-red-100 text-red-700 dark:bg-red-900/40 dark:text-red-300",
     };
     
     const style = statusStyles[(status || "new").toLowerCase()] || "bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300";
@@ -29,21 +29,21 @@ const RecentLeads = ({ leads = [] }) => {
   };
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden transition-all duration-200">
-      <div className="p-6 border-b border-gray-100 dark:border-gray-700">
+    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden transition-all duration-200">
+      <div className="p-6 border-b border-gray-200 dark:border-gray-700">
         <h3 className="text-lg font-semibold text-gray-800 dark:text-white">Recent Leads</h3>
       </div>
       <div className="overflow-x-auto">
         <table className="w-full text-left border-collapse">
           <thead>
-            <tr className="bg-gray-50 dark:bg-gray-900/50 text-gray-500 dark:text-gray-400 text-sm border-b border-gray-100 dark:border-gray-700">
+            <tr className="bg-gray-50 dark:bg-gray-900/50 text-gray-500 dark:text-gray-400 text-sm border-b border-gray-200 dark:border-gray-700">
               <th className="px-6 py-3 font-semibold">Name</th>
               <th className="px-6 py-3 font-semibold">Company</th>
               <th className="px-6 py-3 font-semibold">Status</th>
               <th className="px-6 py-3 font-semibold">Date Added</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-gray-100 dark:divide-gray-700">
+          <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
             {recentLeads.map((lead, index) => (
               <tr key={lead.id || index} className="hover:bg-gray-50 dark:hover:bg-gray-700/35 transition-colors">
                 <td className="px-6 py-4">
@@ -51,14 +51,14 @@ const RecentLeads = ({ leads = [] }) => {
                 </td>
                 <td className="px-6 py-4 text-gray-600 dark:text-gray-300">{lead.company}</td>
                 <td className="px-6 py-4">{renderStatusBadge(lead.status)}</td>
-                <td className="px-6 py-4 text-gray-500 dark:text-gray-450 text-sm">
+                <td className="px-6 py-4 text-gray-500 dark:text-gray-400 text-sm">
                   {lead.dateAdded || (lead.createdAt && new Date(lead.createdAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })) || ''}
                 </td>
               </tr>
             ))}
             {recentLeads.length === 0 && (
               <tr>
-                <td colSpan="4" className="px-6 py-8 text-center text-gray-550 dark:text-gray-400">
+                <td colSpan="4" className="px-6 py-8 text-center text-gray-500 dark:text-gray-400">
                   No recent leads found.
                 </td>
               </tr>

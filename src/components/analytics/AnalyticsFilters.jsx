@@ -40,7 +40,7 @@ export const AnalyticsFilters = ({
   };
 
   return (
-    <div className="flex flex-col gap-4 bg-white dark:bg-gray-800 p-5 rounded-2xl border border-gray-150 dark:border-gray-700 shadow-sm">
+    <div className="flex flex-col gap-4 bg-white dark:bg-gray-800 p-5 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         {/* Title */}
         <div>
@@ -54,7 +54,7 @@ export const AnalyticsFilters = ({
         </div>
 
         {/* Buttons */}
-        <div className="flex flex-wrap items-center bg-gray-50 dark:bg-gray-900/50 p-1.5 rounded-xl border border-gray-100 dark:border-gray-700 gap-1">
+        <div className="flex flex-wrap items-center bg-gray-50 dark:bg-gray-900/50 p-1.5 rounded-xl border border-gray-200 dark:border-gray-700 gap-1">
           {presets.map((preset) => (
             <button
               key={preset.id}
@@ -62,7 +62,7 @@ export const AnalyticsFilters = ({
               className={`px-4 py-2 text-xs font-semibold rounded-lg transition-all ${
                 filterType === preset.id
                   ? 'bg-blue-600 text-white shadow-sm'
-                  : 'text-slate-650 dark:text-slate-400 hover:text-slate-805 hover:bg-slate-100 dark:hover:bg-slate-800'
+                  : 'text-slate-650 dark:text-slate-400 hover:text-slate-800 hover:bg-slate-105 dark:hover:bg-slate-800'
               }`}
             >
               {preset.label}
@@ -73,9 +73,9 @@ export const AnalyticsFilters = ({
 
       {/* Custom range dates input fields */}
       {filterType === 'custom' && (
-        <div className="flex flex-col sm:flex-row gap-4 p-4 bg-gray-50 dark:bg-gray-900/40 rounded-xl border border-gray-100 dark:border-gray-700 animate-fade-in">
+        <div className="flex flex-col sm:flex-row gap-4 p-4 bg-gray-50 dark:bg-gray-900/40 rounded-xl border border-gray-200 dark:border-gray-700 animate-fade-in">
           <div className="flex-1 flex flex-col gap-1.5">
-            <label className="text-xs font-bold text-slate-505 dark:text-slate-400 uppercase tracking-wider">
+            <label className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
               Start Date
             </label>
             <input
@@ -83,12 +83,12 @@ export const AnalyticsFilters = ({
               value={customRange.startDate}
               onChange={handleStartDateChange}
               max={customRange.endDate || undefined}
-              className="w-full border border-slate-205 dark:border-gray-700 bg-white dark:bg-gray-800 rounded-xl px-3.5 py-2 text-sm text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-blue-500/30"
+              className="w-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 rounded-xl px-3.5 py-2 text-sm text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-blue-500/30"
             />
           </div>
 
           <div className="flex-1 flex flex-col gap-1.5">
-            <label className="text-xs font-bold text-slate-505 dark:text-slate-400 uppercase tracking-wider">
+            <label className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
               End Date
             </label>
             <input
@@ -96,7 +96,7 @@ export const AnalyticsFilters = ({
               value={customRange.endDate}
               onChange={handleEndDateChange}
               min={customRange.startDate || undefined}
-              className="w-full border border-slate-205 dark:border-gray-700 bg-white dark:bg-gray-800 rounded-xl px-3.5 py-2 text-sm text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-blue-500/30"
+              className="w-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 rounded-xl px-3.5 py-2 text-sm text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-blue-500/30"
             />
           </div>
         </div>

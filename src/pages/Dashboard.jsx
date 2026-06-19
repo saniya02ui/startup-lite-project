@@ -47,7 +47,7 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="p-4 md:p-6 bg-[#F8FAFC] dark:bg-gray-900 min-h-screen transition-colors duration-200">
+    <div className="p-4 md:p-6 bg-gray-50 dark:bg-gray-900 min-h-screen transition-colors duration-200">
       {/* Header Section */}
       <div className="mb-8">
         <h1 className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white">Dashboard</h1>
@@ -55,7 +55,7 @@ const Dashboard = () => {
       </div>
 
       {/* Stats Cards Row (Responsive: 1 col mobile, 2 tablet, 4 desktop) */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
         <StatsCard
           title="Total Leads"
           value={totalLeadsCount.toLocaleString()}

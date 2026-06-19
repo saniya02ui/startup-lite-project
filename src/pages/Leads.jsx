@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Plus } from 'lucide-react';
+import { Plus, LayoutGrid, List } from 'lucide-react';
 import toast from 'react-hot-toast';
 
 import LeadTable from '../components/leads/LeadTable';
@@ -21,6 +21,9 @@ const Leads = () => {
   // State for search query and active filter status
   const [searchQuery, setSearchQuery] = useState('');
   const [activeFilter, setActiveFilter] = useState('All');
+  
+  // State for hybrid view toggle on tablet
+  const [viewMode, setViewMode] = useState('table');
 
   // State for modal visibility
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -100,7 +103,7 @@ const Leads = () => {
   };
 
   return (
-    <div className="p-4 md:p-6 bg-[#F8FAFC] dark:bg-gray-900 min-h-screen transition-colors duration-200">
+    <div className="p-4 md:p-6 bg-gray-50 dark:bg-gray-900 min-h-screen transition-colors duration-200">
       {/* Header */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4">
         <div>
@@ -118,12 +121,41 @@ const Leads = () => {
 
       {/* Search and Filters Controls */}
       <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 mb-6">
-        <SearchBar value={searchQuery} onChange={setSearchQuery} />
-        <FilterBar
-          activeFilter={activeFilter}
-          onFilterChange={setActiveFilter}
-          leads={leads}
-        />
+        <div className="flex-1 w-full lg:max-w-md">
+          <SearchBar value={searchQuery} onChange={setSearchQuery} />
+        </div>
+        <div className="flex items-center justify-between lg:justify-end gap-4">
+          <FilterBar
+            activeFilter={activeFilter}
+            onFilterChange={setActiveFilter}
+            leads={leads}
+          />
+          {/* View Toggle (Visible only on Tablet) */}
+          <div className="hidden md:flex lg:hidden bg-white dark:bg-gray-800 rounded-lg p-1 border border-gray-200 dark:border-gray-700">
+            <button
+              onClick={() => setViewMode('card')}
+              className={`p-2 rounded-md transition-colors ${
+                viewMode === 'card'
+                  ? 'bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400'
+                  : 'text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
+              }`}
+              title="Card View"
+            >
+              <LayoutGrid className="w-5 h-5" />
+            </button>
+            <button
+              onClick={() => setViewMode('table')}
+              className={`p-2 rounded-md transition-colors ${
+                viewMode === 'table'
+                  ? 'bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400'
+                  : 'text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
+              }`}
+              title="Table View"
+            >
+              <List className="w-5 h-5" />
+            </button>
+          </div>
+        </div>
       </div>
 
       {/* Main Content Area */}
@@ -135,8 +167,8 @@ const Leads = () => {
           />
         ) : (
           <>
-            {/* Mobile View: Cards (Hidden on md and up) */}
-            <div className="grid grid-cols-1 gap-4 md:hidden">
+            {/* Mobile & Tablet Card View */}
+            <div className={`grid grid-cols-1 gap-4 lg:hidden ${viewMode === 'table' ? 'hidden max-md:grid' : ''}`}>
               {filteredLeads.map((lead) => (
                 <LeadCard
                   key={lead.id}
@@ -147,8 +179,8 @@ const Leads = () => {
               ))}
             </div>
 
-            {/* Desktop View: Table (Hidden on smaller than md) */}
-            <div className="hidden md:block">
+            {/* Desktop & Tablet Table View */}
+            <div className={`hidden md:block ${viewMode === 'card' ? 'md:hidden lg:block' : ''}`}>
               <LeadTable
                 leads={filteredLeads}
                 onEdit={handleEditClick}
@@ -162,13 +194,13 @@ const Leads = () => {
       {/* Modal Overlay for Lead Form */}
       {isModalOpen && (
         <div 
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-0 md:p-4"
           role="dialog"
           aria-modal="true"
           aria-labelledby="modal-title"
         >
           {/* Prevent clicks inside the modal from closing it */}
-          <div onClick={(e) => e.stopPropagation()} className="w-full max-w-lg">
+          <div onClick={(e) => e.stopPropagation()} className="w-full max-w-lg h-full md:h-auto">
             <LeadForm
               initialData={selectedLead}
               onSubmit={handleFormSubmit}

@@ -6,7 +6,7 @@ import { Plus, Users, Download } from "lucide-react";
  */
 const QuickActions = () => {
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 p-6 flex flex-col h-full transition-all duration-200">
+    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 flex flex-col h-full transition-all duration-200">
       <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-4">Quick Actions</h3>
       <div className="flex flex-col space-y-3 mt-auto">
         {/* Add New Lead Action */}

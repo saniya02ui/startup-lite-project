@@ -12,11 +12,11 @@ import StatusBadge from './StatusBadge';
  */
 const LeadTable = ({ leads, onEdit, onDelete }) => {
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden transition-all duration-200">
+    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden transition-all duration-200">
       <div className="overflow-x-auto">
         <table className="w-full text-left border-collapse min-w-[800px]">
           <thead>
-            <tr className="bg-gray-50 dark:bg-gray-900/50 border-b border-gray-100 dark:border-gray-700 text-gray-500 dark:text-gray-400 text-sm">
+            <tr className="bg-gray-50 dark:bg-gray-900/50 border-b border-gray-200 dark:border-gray-700 text-gray-500 dark:text-gray-400 text-sm">
               <th className="px-6 py-4 font-semibold">Name</th>
               <th className="px-6 py-4 font-semibold">Company</th>
               <th className="px-6 py-4 font-semibold">Status</th>
@@ -26,7 +26,7 @@ const LeadTable = ({ leads, onEdit, onDelete }) => {
               <th className="px-6 py-4 font-semibold text-right">Actions</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-gray-100 dark:divide-gray-700">
+          <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
             {leads.length === 0 ? (
               <tr>
                 <td colSpan="7" className="px-6 py-12 text-center text-gray-500 dark:text-gray-400">
@@ -49,7 +49,7 @@ const LeadTable = ({ leads, onEdit, onDelete }) => {
                     </a>
                   </td>
                   <td className="px-6 py-4 text-gray-600 dark:text-gray-300">{lead.source}</td>
-                  <td className="px-6 py-4 text-gray-500 dark:text-gray-450 text-sm">
+                  <td className="px-6 py-4 text-gray-500 dark:text-gray-400 text-sm">
                     {lead.dateAdded || (lead.createdAt && new Date(lead.createdAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })) || ''}
                   </td>
                   <td className="px-6 py-4 text-right">

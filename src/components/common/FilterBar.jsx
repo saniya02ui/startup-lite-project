@@ -41,7 +41,7 @@ const FilterBar = ({ activeFilter, onFilterChange, leads = [] }) => {
             className={`inline-flex items-center px-4 py-2 text-sm font-semibold rounded-lg whitespace-nowrap transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500/20 cursor-pointer ${
               isActive
                 ? 'bg-blue-600 text-white shadow-sm shadow-blue-100 dark:shadow-none border border-transparent'
-                : 'bg-white dark:bg-gray-805 text-gray-650 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white border border-gray-202 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-650'
+                : 'bg-white dark:bg-gray-800 text-gray-500 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white border border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600'
             }`}
           >
             <span>{option}</span>
