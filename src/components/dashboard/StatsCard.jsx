@@ -14,15 +14,15 @@ const StatsCard = ({ title, value, icon, change, color }) => {
   const isPositive = change >= 0;
   
   return (
-    <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 flex flex-col hover:shadow-md transition-shadow">
+    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 p-6 flex flex-col hover:shadow-md transition-all duration-200">
       <div className="flex items-center justify-between mb-4">
-        <h3 className="text-sm font-medium text-gray-500">{title}</h3>
-        <div className={`p-2 rounded-lg bg-opacity-10 bg-gray-100 ${color}`}>
+        <h3 className="text-sm font-medium text-gray-500 dark:text-gray-405">{title}</h3>
+        <div className={`p-2 rounded-lg bg-opacity-10 bg-gray-100 dark:bg-gray-700 ${color}`}>
           {icon}
         </div>
       </div>
       <div className="flex items-baseline justify-between">
-        <p className="text-2xl font-bold text-gray-900">{value}</p>
+        <p className="text-2xl font-bold text-gray-900 dark:text-white">{value}</p>
         <span
           className={`text-sm font-medium flex items-center ${
             isPositive ? "text-green-500" : "text-red-500"
@@ -32,7 +32,7 @@ const StatsCard = ({ title, value, icon, change, color }) => {
           {change}%
         </span>
       </div>
-      <p className="text-xs text-gray-400 mt-2">vs last month</p>
+      <p className="text-xs text-gray-400 dark:text-gray-500 mt-2">vs last month</p>
     </div>
   );
 };

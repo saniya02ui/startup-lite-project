@@ -9,15 +9,17 @@ import React from "react";
 const PipelineOverview = ({ leads = [] }) => {
   // Define available statuses and their corresponding Tailwind color classes
   const statusConfig = {
-    new: { label: "New", color: "bg-blue-600" },
-    contacted: { label: "Contacted", color: "bg-yellow-500" },
-    qualified: { label: "Qualified", color: "bg-green-500" },
-    lost: { label: "Lost", color: "bg-red-500" },
+    'new': { label: "New", color: "bg-gray-400" },
+    'contacted': { label: "Contacted", color: "bg-blue-500" },
+    'meeting scheduled': { label: "Meeting Scheduled", color: "bg-purple-500" },
+    'proposal sent': { label: "Proposal Sent", color: "bg-amber-500" },
+    'won': { label: "Won", color: "bg-green-500" },
+    'lost': { label: "Lost", color: "bg-red-500" },
   };
 
   // Calculate counts for each status
   const counts = leads.reduce((acc, lead) => {
-    const status = (lead.status || "new").toLowerCase();
+    const status = (lead.status || "New").toLowerCase();
     acc[status] = (acc[status] || 0) + 1;
     return acc;
   }, {});
@@ -32,11 +34,11 @@ const PipelineOverview = ({ leads = [] }) => {
   });
 
   return (
-    <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
-      <h3 className="text-lg font-semibold text-gray-800 mb-4">Pipeline Overview</h3>
+    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 p-6 transition-all duration-200">
+      <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-4">Pipeline Overview</h3>
       
       {/* Horizontal Bar */}
-      <div className="w-full h-4 flex rounded-full overflow-hidden mb-6">
+      <div className="w-full h-4 flex rounded-full overflow-hidden mb-6 bg-gray-105 dark:bg-gray-700">
         {segments.map((segment) => (
           <div
             key={segment.key}
@@ -53,8 +55,8 @@ const PipelineOverview = ({ leads = [] }) => {
           <div key={segment.key} className="flex items-center space-x-2">
             <span className={`w-3 h-3 rounded-full ${segment.color}`} />
             <div className="flex flex-col">
-              <span className="text-sm font-medium text-gray-700">{segment.label}</span>
-              <span className="text-xs text-gray-500">{segment.count} Leads ({Math.round(segment.percentage)}%)</span>
+              <span className="text-sm font-medium text-gray-700 dark:text-gray-300">{segment.label}</span>
+              <span className="text-xs text-gray-500 dark:text-gray-400">{segment.count} Leads ({Math.round(segment.percentage)}%)</span>
             </div>
           </div>
         ))}
