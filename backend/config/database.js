@@ -11,7 +11,9 @@ const connectDB = async () => {
   try {
     // Note: useNewUrlParser and useUnifiedTopology are deprecated in Mongoose 6+
     // but included here as requested.
-   const conn = await mongoose.connect(process.env.MONGODB_URI);
+    console.log("MONGODB_URI =", process.env.MONGODB_URI);
+
+    const conn = await mongoose.connect(process.env.MONGODB_URI);
 
     console.log(`MongoDB Atlas Connected: ${conn.connection.host}`);
   } catch (error) {
