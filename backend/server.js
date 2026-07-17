@@ -20,11 +20,13 @@ dotenv.config();
 // Environment Validation
 // ===============================
 const checkRequiredEnvVars = () => {
-  const required = ["MONGODB_URI", "JWT_SECRET", "PORT"];
+  const required = ["MONGODB_URI", "JWT_SECRET"];
   const missing = required.filter((key) => !process.env[key]);
 
   if (missing.length > 0) {
-    console.error(`❌ Missing required environment variables: ${missing.join(", ")}`);
+    console.error(
+      `❌ Missing required environment variables: ${missing.join(", ")}`,
+    );
     process.exit(1);
   }
 };
@@ -54,13 +56,19 @@ app.use((req, res, next) => {
 });
 
 // Dynamic CORS configuration for production readiness
-const frontendUrl = process.env.FRONTEND_URL ? process.env.FRONTEND_URL.trim() : "http://localhost:5173";
-const allowedOrigins = [frontendUrl, 'https://your-app.vercel.app'];
+const frontendUrl = process.env.FRONTEND_URL
+  ? process.env.FRONTEND_URL.trim()
+  : "http://localhost:5173";
+const allowedOrigins = [frontendUrl, "https://your-app.vercel.app"];
 app.use(
   cors({
     origin: (origin, callback) => {
       // allow requests with no origin, allowed origins, or ANY localhost port during development
-      if (!origin || allowedOrigins.includes(origin) || /^http:\/\/localhost:\d+$/.test(origin)) {
+      if (
+        !origin ||
+        allowedOrigins.includes(origin) ||
+        /^http:\/\/localhost:\d+$/.test(origin)
+      ) {
         callback(null, true);
       } else {
         console.error(`CORS Blocked: ${origin}`);
@@ -68,7 +76,7 @@ app.use(
       }
     },
     credentials: true,
-  })
+  }),
 );
 
 // Request parsing limits to prevent large payload attacks
@@ -90,14 +98,22 @@ if (process.env.NODE_ENV === "production") {
 const generalLimiter = rateLimit({
   windowMs: 15 * 60 * 1000,
   max: 100,
-  message: { success: false, message: "Too many requests from this IP, please try again after 15 minutes." },
+  message: {
+    success: false,
+    message:
+      "Too many requests from this IP, please try again after 15 minutes.",
+  },
 });
 
 // Auth rate limit (stricter): 10 requests per 15 minutes
 const authLimiter = rateLimit({
   windowMs: 15 * 60 * 1000,
   max: 10,
-  message: { success: false, message: "Too many auth attempts from this IP, please try again after 15 minutes." },
+  message: {
+    success: false,
+    message:
+      "Too many auth attempts from this IP, please try again after 15 minutes.",
+  },
 });
 
 // Apply rate limiters to routes
@@ -139,14 +155,16 @@ const PORT = process.env.PORT || 5000;
 
 const server = app.listen(PORT, () => {
   console.log(
-    `🚀 Server running on http://localhost:${PORT} in ${process.env.NODE_ENV || "development"} mode`
+    `🚀 Server running on http://localhost:${PORT} in ${process.env.NODE_ENV || "development"} mode`,
   );
 });
 
 // Graceful shutdown handling for containerized/production environments
 const gracefulShutdown = () => {
-  console.log("\nReceived kill signal (SIGTERM/SIGINT), shutting down gracefully...");
-  
+  console.log(
+    "\nReceived kill signal (SIGTERM/SIGINT), shutting down gracefully...",
+  );
+
   // Stop accepting new requests
   server.close(async () => {
     console.log("Closed out remaining HTTP connections.");
@@ -163,7 +181,9 @@ const gracefulShutdown = () => {
 
   // Force close after 10 seconds if graceful shutdown hangs
   setTimeout(() => {
-    console.error("Could not close connections in time, forcefully shutting down");
+    console.error(
+      "Could not close connections in time, forcefully shutting down",
+    );
     process.exit(1);
   }, 10000);
 };
