@@ -60,18 +60,22 @@ app.use((req, res, next) => {
 });
 
 // Dynamic CORS configuration for production readiness
-const frontendUrl = process.env.FRONTEND_URL
-  ? process.env.FRONTEND_URL.trim()
-  : "http://localhost:5173";
-const allowedOrigins = [frontendUrl, "https://your-app.vercel.app"];
+const rawFrontendUrl = process.env.FRONTEND_URL || "http://localhost:5173";
+// Strip trailing slash if the user accidentally included it in their env variable
+const frontendUrl = rawFrontendUrl.trim().replace(/\/$/, '');
+
 app.use(
   cors({
     origin: (origin, callback) => {
-      // allow requests with no origin, allowed origins, or ANY localhost port during development
+      // allow requests with no origin (e.g. mobile apps, curl requests),
+      // the specific configured frontendUrl,
+      // any localhost port during development,
+      // and any vercel deployment domain as a fallback.
       if (
         !origin ||
-        allowedOrigins.includes(origin) ||
-        /^http:\/\/localhost:\d+$/.test(origin)
+        origin === frontendUrl ||
+        /^http:\/\/localhost:\d+$/.test(origin) ||
+        /^https:\/\/.*\.vercel\.app$/.test(origin)
       ) {
         callback(null, true);
       } else {
