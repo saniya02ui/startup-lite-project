@@ -15,6 +15,10 @@ import leadRoutes from "./routes/leadRoutes.js";
 
 // Load environment variables
 dotenv.config();
+console.log(
+  "MONGODB_URI from server:",
+  JSON.stringify(process.env.MONGODB_URI),
+);
 
 // ===============================
 // Environment Validation
